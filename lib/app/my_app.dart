@@ -1,17 +1,13 @@
-// ignore_for_file: public_member_api_docs
-
 import 'package:flutter/material.dart';
-import 'package:solid_test/screens/home.dart';
+import 'package:solid_test/app/random_color.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Material(
-      child: MaterialApp(
-        home: Home(),
-      ),
+    return const MaterialApp(
+      home: RandomColor(),
     );
   }
 }

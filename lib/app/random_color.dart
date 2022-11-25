@@ -1,14 +1,11 @@
-// ignore: newline-before-return
-
-// ignore_for_file: public_member_api_docs, prefer_final_locals
 
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Random0 extends StatelessWidget {
-  const Random0({Key? key}) : super(key: key);
+
+class RandomColor extends StatelessWidget {
+  const RandomColor({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,18 +25,17 @@ class Random0 extends StatelessWidget {
 }
 
 class MyWidget extends StatelessWidget {
-  const MyWidget({Key? key}) : super(key: key);
-
+  const MyWidget({super.key});
   @override
   Widget build(BuildContext context) {
-    ChangeColor state = Provider.of<ChangeColor>(context);
-    // ignore: newline-before-return
+    final ChangeColor state = Provider.of<ChangeColor>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
           'Solid Software',
           style: TextStyle(
-            color: state.textColor,
+            color: state._textColor,
           ),
         ),
         centerTitle: true,
@@ -47,10 +43,10 @@ class MyWidget extends StatelessWidget {
       ),
       body: Center(
         child: GestureDetector(
-          onTap: () => state.randColor(),
+          onTap: () => state._randColor(),
           child: Container(
             alignment: Alignment.center,
-            color: state.backColor,
+            color: state._backColor,
             child: const Text(
               "Hey there 'using Provider'",
               style: TextStyle(fontSize: 20),
@@ -64,21 +60,20 @@ class MyWidget extends StatelessWidget {
 }
 
 class ChangeColor extends ChangeNotifier {
-  Color txtColor = Colors.black;
-  Color bgColor = Colors.white;
-  Color get textColor => txtColor;
-  Color get backColor => bgColor;
-  // ignore: member-ordering-extended
-  final max = 255;
-
-  void randColor() {
-    txtColor = Color.fromARGB(
+  Color _txtColor = Colors.black;
+  Color _bgColor = Colors.white;
+  Color get _textColor => _txtColor;
+  Color get _backColor => _bgColor;
+  
+  void _randColor() {
+    const max = 255;
+    _txtColor = Color.fromARGB(
       max,
       Random().nextInt(max),
       Random().nextInt(max),
       Random().nextInt(max),
     );
-    bgColor = Color.fromARGB(
+    _bgColor = Color.fromARGB(
       max,
       Random().nextInt(max),
       Random().nextInt(max),
