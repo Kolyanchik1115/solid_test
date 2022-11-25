@@ -9,16 +9,14 @@ class RandomColor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: MaterialApp(
-        home: MultiProvider(
-          providers: [
-            ChangeNotifierProvider<ChangeColor>.value(
-              value: ChangeColor(),
-            ),
-          ],
-          child: const MyWidget(),
-        ),
+    return MaterialApp(
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<ChangeColor>.value(
+            value: ChangeColor(),
+          ),
+        ],
+        child: const MyWidget(),
       ),
     );
   }
